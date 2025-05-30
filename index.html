@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="404 - No Website Found">
-    <meta property="og:description" content="Website/Webpage No Longer exists.">
-    <title>404 - Page Not Found</title>
+    <meta property="og:title" content="Website Down for Maintenance">
+    <meta property="og:description" content="We're performing scheduled maintenance. Please check back soon.">
+    <title>Website Down for Maintenance</title>
     <style>
-        /* General Styles */
+        /* Same styles as before, no changes */
         body {
             margin: 0;
             padding: 0;
@@ -25,7 +25,7 @@
         }
 
         h1 {
-            font-size: 6rem;
+            font-size: 4.5rem;
             color: rgb(0, 255, 255);
             text-shadow: 0 0 10px rgb(0, 47, 255), 0 0 20px rgb(0, 255, 255);
             animation: glow 1.5s infinite alternate;
@@ -85,7 +85,6 @@
             text-decoration: underline;
         }
 
-        /* Canvas for Particles */
         canvas {
             position: absolute;
             top: 0;
@@ -137,23 +136,21 @@
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
-    <h1 id="text">404</h1>
-    <p>The page you're looking for doesn't exist.</p>
+    <h1 id="text">Maintenance</h1>
+    <p>Our website is currently down for scheduled maintenance.<br>Please check back again soon.</p>
     <button class="go-back-btn" onclick="goBack()">Go Back</button>
 
     <div class="notification-container" id="notificationContainer"></div>
     <button class="show-button" onclick="showNotification()">Show Notification</button>
 
     <footer>
-        <p>This content is no longer available</p>
+        <p>&copy; 2025 | Website is temporarily unavailable due to maintenance.</p>
     </footer>
 
     <script>
         function goBack() {
             window.history.back();
         }
-
-
 
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
@@ -221,7 +218,7 @@
             const container = document.getElementById('notificationContainer');
             const notification = document.createElement('div');
             notification.classList.add('notification');
-            notification.innerHTML = `<strong>Website is down for maintainace</strong>
+            notification.innerHTML = `<strong>Website is down for maintenance</strong>
                 <div class="progress-bar"></div>
             `;
             container.appendChild(notification);
