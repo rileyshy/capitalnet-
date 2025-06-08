@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Website Down for Maintenance">
     <meta property="og:description" content="We're performing scheduled maintenance. Please check back soon.">
+    <meta name="description" content="Our website is undergoing scheduled maintenance. Please check back soon.">
     <title>Website Down for Maintenance</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* Same styles as before, no changes */
         body {
             margin: 0;
             padding: 0;
@@ -66,6 +67,26 @@
         .go-back-btn:hover, .show-button:hover, .visit-original-btn:hover {
             background-color: rgb(0, 180, 255);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .discord-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .discord-button:hover {
+            background-color: #4752C4;
         }
 
         footer {
@@ -138,13 +159,11 @@
     <canvas id="particleCanvas"></canvas>
     <h1 id="text">Maintenance</h1>
     <p>Our website is currently down for scheduled maintenance.<br>Please check back again soon.</p>
-    <button class="go-back-btn" onclick="goBack()">Go Back</button>
+    <button class="go-back-btn" onclick="goBack()" aria-label="Go back to the previous page">Go Back</button>
+    <button class="show-button" onclick="showNotification()">Show Notification</button>
+    <a href="https://discord.gg/YOURINVITECODE" target="_blank" class="discord-button" aria-label="Join our Discord">Join our Discord</a>
 
     <div class="notification-container" id="notificationContainer"></div>
-    <button class="show-button" onclick="showNotification()">Show Notification</button>
-  <a href="https://discord.gg/neSx3r2YNr" target="_blank" class="discord-button">Join our Discord</a>
-
-
 
     <script>
         function goBack() {
@@ -155,6 +174,11 @@
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
 
         const textElement = document.getElementById('text');
         const textRect = textElement.getBoundingClientRect();
